@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron text-center" style="margin-bottom:0">
+  		<h1>Welcome to Chat App</h1>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 offset-sm-4">
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+		    	<div align="center" style="margin-bottom: 20px;margin-top: 20px">
+		        	{{ messages[0] }}
+		    	</div>
+				{% endif %}
+				{% endwith %}
+				<form action="/" method="POST" style="margin-top: 30%">
+					<input type="text" name="display_name" class="form-control mb-2 mr-sm-2" placeholder="Display name">
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
